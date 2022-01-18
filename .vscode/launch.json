@@ -1,0 +1,32 @@
+{
+  "configurations": [
+    {
+      "name": "(gdb) Launch",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "/home/kl406/ece650/HW1/my_malloc/general_tests/mymalloc_test",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "/home/kl406/ece650/HW1/my_malloc/general_tests",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+          {
+              "description": "Enable pretty-printing for gdb",
+              "text": "-enable-pretty-printing",
+              "ignoreFailures": true
+          }
+      ]
+    },
+    {
+      "name": "Run and debug C Program",
+      "type": "lldb",
+      "request": "launch",
+      "program": "/home/kl406/ece650/HW1/my_malloc/general_tests/mymalloc_test",
+      "args": [],
+      "cwd": "/home/kl406/ece650/HW1/my_malloc/general_tests",
+      "preLaunchTask": "makelldb: make"
+    }
+  ]
+}
