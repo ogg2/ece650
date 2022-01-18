@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jan 18 00:01:42 2022
+# Make data base, printed on Tue Jan 18 00:17:49 2022
 
 # Variables
 
@@ -65,7 +65,7 @@ XDG_RUNTIME_DIR = /run/user/1454625
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1454625/vscode-ipc-bc755fec-c5de-4c1e-84d8-5035ecc4fe02.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1454625/vscode-ipc-112e2e54-ed97-45e7-8430-dd1286979ece.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -161,9 +161,9 @@ MOTD_SHOWN = pam
 
 # Directories
 
-# . (device 64769, inode 33554595): 4 files, no impossibilities.
+# . (device 64769, inode 33554595): 5 files, no impossibilities.
 
-# 4 files, no impossibilities in 1 directories.
+# 5 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -213,12 +213,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 12 / storage = 102 B / avg = 8 B
-# current buf: size = 8162 B / used = 102 B / count = 12 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 13 / storage = 107 B / avg = 8 B
+# current buf: size = 8162 B / used = 107 B / count = 13 / avg = 8 B
 
-# strcache performance: lookups = 15 / hit rate = 20%
+# strcache performance: lookups = 16 / hit rate = 18%
 # hash-table stats:
-# Load=12/8192=0%, Rehash=0, Collisions=1/15=7%
-# Finished Make data base on Tue Jan 18 00:01:42 2022
+# Load=13/8192=0%, Rehash=0, Collisions=1/16=6%
+# Finished Make data base on Tue Jan 18 00:17:49 2022
 
  
