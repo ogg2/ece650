@@ -190,13 +190,14 @@ void * bf_malloc(size_t size) {
         size_t gap = -1;
         struct Node*helper=NULL;
         //first fit - > best fit                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-        while (curr != NULL && FLAG == 0) {
+        while (curr != NULL) {
             if (curr->size == size) {
                 FLAG = 1;
                 gap = curr->size - size;
                 break;
             }else if(curr->size > size){
                 FLAG = 2;
+                
                 if(gap == -1 || gap > curr->size-size){
                     gap = curr->size - size;
                     helper = curr;
