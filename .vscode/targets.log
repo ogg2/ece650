@@ -2,129 +2,70 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target 'all'.  Stop.
  
 # GNU Make 4.2.1
- 
 # Built for x86_64-pc-linux-gnu
- 
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
- 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
- 
 # This is free software: you are free to change and redistribute it.
- 
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
- 
-# Make data base, printed on Tue Jan 18 21:50:05 2022
- 
+# Make data base, printed on Tue Feb  1 23:02:33 2022
 
 # Variables
- 
 
- 
 # automatic
- 
 <D = $(patsubst %/,%,$(dir $<))
- 
 # automatic
- 
 ?F = $(notdir $?)
- 
 # default
- 
 .SHELLFLAGS := -c
- 
 # environment
- 
 XDG_SESSION_CLASS = user
- 
 # environment
- 
 VSCODE_AGENT_FOLDER = /home/kl406/.vscode-server
- 
 # environment
- 
 XDG_SESSION_TYPE = tty
- 
 # environment
- 
 VSCODE_LOG_NATIVE = false
- 
 # automatic
- 
 ?D = $(patsubst %/,%,$(dir $?))
- 
 # automatic
- 
 @D = $(patsubst %/,%,$(dir $@))
- 
 # automatic
- 
 @F = $(notdir $@)
- 
 # default
- 
 MAKE_VERSION := 4.2.1
- 
 # makefile
- 
 CURDIR := /home/kl406/ece650
- 
 # makefile
- 
 SHELL = /bin/sh
- 
 # environment
- 
 VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
- 
 # environment
- 
 _ = /home/kl406/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/node
- 
 # makefile
- 
 MAKEFILE_LIST := 
- 
 # 'override' directive
- 
 GNUMAKEFLAGS := 
- 
 # environment
- 
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1454625/bus
- 
 # environment
- 
 VSCODE_VERBOSE_LOGGING = true
- 
 # environment
- 
 LESSOPEN = | /usr/bin/lesspipe %s
- 
 # environment
- 
 VSCODE_CWD = /home/kl406
- 
 # environment
- 
-KRB5CCNAME = FILE:/tmp/krb5cc_1454625_NexS7b
- 
+KRB5CCNAME = FILE:/tmp/krb5cc_1454625_geX1iC
 # environment
- 
-SSH_CONNECTION = 174.109.111.243 57943 67.159.94.155 22
- 
+SSH_CONNECTION = 174.109.111.243 54845 67.159.94.155 22
 # environment
- 
 PATH = /home/kl406/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/home/kl406/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
- 
 # environment
- 
 XDG_RUNTIME_DIR = /run/user/1454625
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1454625/vscode-ipc-6f37aee5-9a2a-4499-bcb4-582bd2bef003.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1454625/vscode-ipc-ee1faae5-3430-4ea8-9b2a-d75a2d91a572.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -147,7 +88,6 @@ HOME = /home/kl406
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 LOGNAME = kl406
- 
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # automatic
@@ -165,7 +105,7 @@ MAKECMDGOALS := all
 # environment
 SHLVL = 1
 # environment
-XDG_SESSION_ID = 1
+XDG_SESSION_ID = 53
 # environment
 USER = kl406
 # makefile
@@ -183,7 +123,7 @@ MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_CLIENT = 174.109.111.243 57943 22
+SSH_CLIENT = 174.109.111.243 54845 22
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
@@ -221,9 +161,9 @@ MOTD_SHOWN = pam
 
 # Directories
 
-# . (device 64769, inode 33554595): 5 files, no impossibilities.
+# . (device 64769, inode 33554595): 6 files, no impossibilities.
 
-# 5 files, no impossibilities in 1 directories.
+# 6 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -273,12 +213,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 13 / storage = 107 B / avg = 8 B
-# current buf: size = 8162 B / used = 107 B / count = 13 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 14 / storage = 111 B / avg = 7 B
+# current buf: size = 8162 B / used = 111 B / count = 14 / avg = 7 B
 
-# strcache performance: lookups = 16 / hit rate = 18%
+# strcache performance: lookups = 17 / hit rate = 17%
 # hash-table stats:
-# Load=13/8192=0%, Rehash=0, Collisions=1/16=6%
-# Finished Make data base on Tue Jan 18 21:50:05 2022
+# Load=14/8192=0%, Rehash=0, Collisions=1/17=6%
+# Finished Make data base on Tue Feb  1 23:02:33 2022
 
  
