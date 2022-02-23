@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Feb  1 23:02:33 2022
+# Make data base, printed on Tue Feb 22 23:23:29 2022
 
 # Variables
 
@@ -55,9 +55,9 @@ LESSOPEN = | /usr/bin/lesspipe %s
 # environment
 VSCODE_CWD = /home/kl406
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_1454625_geX1iC
+KRB5CCNAME = FILE:/tmp/krb5cc_1454625_fPauXd
 # environment
-SSH_CONNECTION = 174.109.111.243 54845 67.159.94.155 22
+SSH_CONNECTION = 174.109.111.243 50297 67.159.94.155 22
 # environment
 PATH = /home/kl406/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/home/kl406/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
@@ -65,7 +65,7 @@ XDG_RUNTIME_DIR = /run/user/1454625
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1454625/vscode-ipc-ee1faae5-3430-4ea8-9b2a-d75a2d91a572.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1454625/vscode-ipc-3fdf028a-1e46-46ea-b6ab-7e709a85c7e5.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -105,7 +105,7 @@ MAKECMDGOALS := all
 # environment
 SHLVL = 1
 # environment
-XDG_SESSION_ID = 53
+XDG_SESSION_ID = 1
 # environment
 USER = kl406
 # makefile
@@ -123,7 +123,7 @@ MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_CLIENT = 174.109.111.243 54845 22
+SSH_CLIENT = 174.109.111.243 50297 22
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
@@ -161,9 +161,9 @@ MOTD_SHOWN = pam
 
 # Directories
 
-# . (device 64769, inode 33554595): 6 files, no impossibilities.
+# . (device 64769, inode 33554595): 12 files, no impossibilities.
 
-# 6 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -213,12 +213,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 14 / storage = 111 B / avg = 7 B
-# current buf: size = 8162 B / used = 111 B / count = 14 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 20 / storage = 160 B / avg = 8 B
+# current buf: size = 8162 B / used = 160 B / count = 20 / avg = 8 B
 
-# strcache performance: lookups = 17 / hit rate = 17%
+# strcache performance: lookups = 23 / hit rate = 13%
 # hash-table stats:
-# Load=14/8192=0%, Rehash=0, Collisions=1/17=6%
-# Finished Make data base on Tue Feb  1 23:02:33 2022
+# Load=20/8192=0%, Rehash=0, Collisions=1/23=4%
+# Finished Make data base on Tue Feb 22 23:23:29 2022
 
  
