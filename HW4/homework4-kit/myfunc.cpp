@@ -63,7 +63,7 @@ void createtable_color(connection * C){
 
 /* create ends*/
 
-/* add player.txt, team.txt, state.txt, color.txt*/
+/* add player.txt, team.txt, state.txt, color.txt */
 void break_add(connection * C, string s,string filename){
     vector<string>arr;
     size_t i = 0;

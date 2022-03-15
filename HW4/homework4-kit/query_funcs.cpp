@@ -83,30 +83,62 @@ void query1(connection *C,
             )
 {
     string sql = "SELECT * FROM PLAYER WHERE MPG BETWEEN 35 AND 40;";
-    vector<int>used = {use_mpg, use_ppg, use_rpg, use_apg, use_spg, use_bpg};
-    vector<string> label = {"MPG","PPG","RPG","APG","SPG","BPG"};
-    vector<int>mymax = {max_mpg, max_ppg, max_rpg, max_apg};
-    vector<int>mymin = {min_mpg, min_ppg, min_rpg, min_apg};
-    vector<double>mydmax = {max_spg, max_bpg};
-    vector<double>mydmin = {min_spg, min_bpg};
     stringstream ss;
-    
     ss << "SELECT * FROM PLAYER";
     bool has_condition = false;
-    for(int i = 0; i < used.size();++i){
-        if(used[i] == 0) continue;
-        if(has_condition == false){
+    if(use_mpg){
+        if(!has_condition){
             ss << " WHERE ";
-        }
-        else{
             has_condition = true;
+        }else{
             ss << " AND ";
         }
-        if(i < 4){
-            ss << label[i] << " >= " << mymin[i] << " AND " << label[i] << " <= " << mymax[i];
+        ss<< " MPG BETWEEN " << min_mpg << " AND " << max_mpg;
+    }
+    if(use_ppg){
+        if(!has_condition){
+            ss << " WHERE ";
+            has_condition = true;
         }else{
-            ss << label[i] << " >= " << mydmin[i-4] << " AND " << label[i] << " <= " << mydmax[i-4];
+            ss << " AND ";
         }
+        ss<< " PPG BETWEEN " << min_ppg << " AND " << max_ppg;
+    }
+    if(use_rpg){
+        if(!has_condition){
+            ss << " WHERE ";
+            has_condition = true;
+        }else{
+            ss << " AND ";
+        }
+        ss<< " RPG BETWEEN " << min_rpg << " AND " << max_rpg;
+    }
+    if(use_apg){
+        if(!has_condition){
+            ss << " WHERE ";
+            has_condition = true;
+        }else{
+            ss << " AND ";
+        }
+        ss<< " APG BETWEEN " << min_apg << " AND " << max_apg;
+    }
+    if(use_spg){
+        if(!has_condition){
+            ss << " WHERE ";
+            has_condition = true;
+        }else{
+            ss << " AND ";
+        }
+        ss<< " SPG BETWEEN " << min_spg << " AND " << max_spg;
+    }
+    if(use_bpg){
+        if(!has_condition){
+            ss << " WHERE ";
+            has_condition = true;
+        }else{
+            ss << " AND ";
+        }
+        ss<< " BPG BETWEEN " << min_bpg << " AND " << max_bpg;
     }
     ss << ";";
 
