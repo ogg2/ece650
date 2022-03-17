@@ -1,5 +1,5 @@
 #include "query_funcs.h"
-
+#include <iomanip>
 
 void add_player(connection *C, int team_id, int jersey_num, string first_name, string last_name,
                 int mpg, int ppg, int rpg, int apg, double spg, double bpg)
@@ -154,7 +154,7 @@ void query1(connection *C,
       cout << c[0].as<int>() << " " << c[1].as<int>() << " " <<  c[2].as<int>() << " ";
       cout << c[3].as<string>() << " " << c[4].as<string>() << " " << c[5].as<int>() << " ";
       cout << c[6].as<int>() << " " << c[7].as<int>() << " " << c[8].as<int>() << " ";
-      cout << c[9].as<double>() << " " << c[10].as<double>() << endl;
+      cout << fixed << setprecision(1) << c[9].as<double>()<< " " << fixed << setprecision(1) << c[10].as<double>() << endl;
     }
     //cout << "QUERY 1 Operation done successfully" << endl;
 }
