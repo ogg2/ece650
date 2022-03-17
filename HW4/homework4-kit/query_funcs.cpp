@@ -209,7 +209,9 @@ void query3(connection *C, string team_name)
 void query4(connection *C, string team_state, string team_color)
 {
     work W(*C);
-    cout<<"FIRST_NAME LAST_NAME UNIFORM_NUM"<<endl;
+    //cout<<"FIRST_NAME LAST_NAME UNIFORM_NUM"<<endl;
+    cout<<"UNIFORM_NUM FIRST_NAME LAST_NAME"<<endl;
+
     //order by
     string sql = "SELECT FIRST_NAME, LAST_NAME, UNIFORM_NUM FROM PLAYER, TEAM, STATE, COLOR WHERE PLAYER.TEAM_ID = TEAM.TEAM_ID ";
     stringstream ss;
@@ -226,7 +228,7 @@ void query4(connection *C, string team_state, string team_color)
     result R( N.exec( sql ));
 
     for (result::const_iterator c = R.begin(); c != R.end(); ++c) {
-      cout << c[0].as<string>()<<" "<< c[1].as<string>() <<" "<< c[2].as<int>() << endl;
+      cout <<  c[2].as<int>()<<" "<< c[0].as<string>() <<" "<< c[1].as<string>() << endl;
     }
     //cout << "QUERY 4 Operation done successfully" << endl;
 }
