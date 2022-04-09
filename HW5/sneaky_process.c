@@ -107,8 +107,11 @@ void myrestore(){
 }
 
 void install_module(){
-    system("insmod sneaky_mod.ko");
+    char str[100];
+    sprintf(str, "insmod sneaky_mod.ko mystring=%d", (int)getpid());
+    system(str);
 }
+ 
 void qloop(){
     while(1){
         char c = getchar();
@@ -119,26 +122,26 @@ void qloop(){
 }
 
 void remove_module(){
-    system("rmmmod sneaky_mod");
+    system("rmmod sneaky_mod");
 }
 int main(){
-    printf("hello world\n");
+    //printf("hello world\n");
     
-    pid_t process_id = getpid();
-    printf("%d\n",process_id);
+    int pid = getpid();
+    printf("sneaky_process pid = %d\n",pid);
     
-    
+ 
     mycopy();
-    myprint_tmp();
+    //myprint_tmp();
     myinsert();
-    myprint_etc();
+    //myprint_etc();
 
     install_module();
     qloop();
     remove_module();
 
-    myprint_tmp();
+    //myprint_tmp();
     myrestore();
-    myprint_etc();
+    //myprint_etc();
 	return 0;
 }
